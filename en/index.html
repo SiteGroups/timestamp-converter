@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Conversion Guide & Tool</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css?v=2">
+</head>
+<body class="min-h-screen">
+    <!-- Language Switcher -->
+    <div class="language-switcher flex space-x-2">
+        <a href="../index.html" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">中文</a>
+        <a href="/en/" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">English</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Timestamp Converter</h1>
+            <p class="text-xl text-gray-600">Efficient and accurate conversion between Unix timestamps and datetime</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="flex justify-center mb-12">
+            <div class="glass-card p-2 inline-flex space-x-1">
+                <a href="#converter" class="nav-link px-4 py-2 rounded-lg font-medium">Converter</a>
+                <a href="#what-is" class="nav-link px-4 py-2 rounded-lg font-medium">What is Timestamp</a>
+                <a href="#usage" class="nav-link px-4 py-2 rounded-lg font-medium">Usage Guide</a>
+                <a href="#examples" class="nav-link px-4 py-2 rounded-lg font-medium">Examples</a>
+                <a href="#faq" class="nav-link px-4 py-2 rounded-lg font-medium">FAQ</a>
+                <a href="#advanced" class="nav-link px-4 py-2 rounded-lg font-medium">Advanced</a>
+            </div>
+        </div>
+
+        <!-- Converter Tool Section -->
+        <section id="converter" class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-exchange-alt mr-3 text-blue-500"></i>Timestamp Converter Tool
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Input Area -->
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Input Type</label>
+                        <select id="inputType" class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="timestamp">Timestamp</option>
+                            <option value="datetime">Datetime</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Input Value</label>
+                        <input type="text" id="inputValue" placeholder="Enter timestamp or datetime" 
+                               class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Time Zone</label>
+                        <select id="timezone" class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="utc">UTC</option>
+                            <option value="beijing">Beijing Time</option>
+                            <option value="est">Eastern Time</option>
+                            <option value="pst">Pacific Time</option>
+                        </select>
+                    </div>
+                    
+                    <button id="convertBtn" class="btn-primary text-white px-6 py-2 rounded-md font-medium w-full md:w-auto">
+                        <i class="fas fa-sync-alt mr-2"></i>Convert
+                    </button>
+                </div>
+                
+                <!-- Result Area -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Conversion Result</label>
+                    <input type="text" id="resultValue" readonly 
+                           class="w-full p-2 border border-gray-300 rounded-md bg-gray-50">
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium mb-2">Additional Information</h3>
+                        <div id="additionalInfo" class="text-sm text-gray-600">
+                            <!-- Dynamic information will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Timestamp Section -->
+        <section id="what-is" class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-info-circle mr-3 text-blue-500"></i>What is Unix Timestamp?
+            </h2>
+            <p class="mb-4 text-gray-700">
+                Unix Timestamp is a way to represent time as the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC (Coordinated Universal Time). This representation is widely used in computer systems because it simplifies time to an integer, making it easy to store and compute.
+            </p>
+            
+            <h3 class="text-xl font-semibold mt-6 mb-3">Timestamp Units</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <li><strong>Seconds (s)</strong>: The most common unit, typically 10 digits (e.g., 1622505600)</li>
+                <li><strong>Milliseconds (ms)</strong>: One thousandth of a second, typically 13 digits (e.g., 1622505600000)</li>
+                <li><strong>Microseconds (μs)</strong>: One millionth of a second, typically 16 digits</li>
+                <li><strong>Nanoseconds (ns)</strong>: One billionth of a second, typically 19 digits</li>
+            </ul>
+            <p class="mt-4 text-gray-700">This tool primarily supports conversion of seconds and milliseconds timestamps.</p>
+        </section>
+
+        <!-- Usage Guide Section -->
+        <section id="usage" class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-book-open mr-3 text-blue-500"></i>Detailed Usage Guide
+            </h2>
+            
+            <h3 class="text-xl font-semibold mb-3">Timestamp to Datetime</h3>
+            <ol class="list-decimal pl-5 space-y-2 mb-6 text-gray-700">
+                <li>Enter 10 or 13 digit number in the input box</li>
+                <li>Ensure input type is set to "Timestamp"</li>
+                <li>Select target time zone (UTC or Beijing Time)</li>
+                <li>Click the "Convert" button to get the corresponding datetime</li>
+            </ol>
+            
+            <h3 class="text-xl font-semibold mb-3">Datetime to Timestamp</h3>
+            <ol class="list-decimal pl-5 space-y-2 mb-6 text-gray-700">
+                <li>Enter datetime in the input box, recommended format: YYYY-MM-DD HH:MM:SS</li>
+                <li>Ensure input type is set to "Datetime"</li>
+                <li>Select the time zone corresponding to the input time</li>
+                <li>Click the "Convert" button to get the corresponding timestamp (in seconds)</li>
+            </ol>
+            
+            <h3 class="text-xl font-semibold mb-3">Batch Conversion Tips</h3>
+            <p class="text-gray-700 mb-4">
+                Although this tool is primarily designed for single conversions, you can achieve batch conversions through the following methods:
+            </p>
+            <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                <li>Prepare a text file containing multiple timestamps or datetimes</li>
+                <li>Enter one value per line</li>
+                <li>Copy each value into the conversion tool for conversion</li>
+                <li>Paste the results back into the file</li>
+            </ol>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-table mr-3 text-blue-500"></i>Conversion Examples
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Input Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Input Value</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Output (UTC)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Output (Beijing Time)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Timestamp (seconds)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1622505600</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2021-06-01 00:00:00</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2021-06-01 08:00:00</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Timestamp (milliseconds)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1672531200000</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-01 00:00:00</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-01-01 08:00:00</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Datetime</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2025-01-01 00:00:00</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1735689600</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1735660800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-question-circle mr-3 text-blue-500"></i>Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-medium mb-2">Why does the conversion result not match my local time?</h3>
+                    <p class="text-gray-700">
+                        This is usually caused by incorrect time zone settings. Please ensure you have selected the correct time zone when converting. UTC is Coordinated Universal Time, and Beijing Time is 8 hours ahead of UTC (UTC+8).
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-2">Why is the conversion result incorrect for 13-digit timestamps?</h3>
+                    <p class="text-gray-700">
+                        13-digit numbers are typically millisecond-level timestamps. Our tool automatically detects and converts millisecond timestamps to second-level for calculation. If you're experiencing issues, please ensure there are no extra digits or non-numeric characters.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
