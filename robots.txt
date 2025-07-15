@@ -1,0 +1,6 @@
+# robots.txt for Timestamp Converter
+
+User-agent: *
+Allow: /
+
+Sitemap: https://timestamp.siteg.cc/sitemap.xml
