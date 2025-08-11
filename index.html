@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MB8J629MTR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MB8J629MTR');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业在线时间戳转换工具，支持Unix时间戳与日期时间互转、毫秒级时间戳转换、全球主要城市当前时间显示，提供精准时区转换、时间差计算和本地时间查询功能，免费使用。">
+    <meta name="keywords" content="时间戳转换, Unix时间戳, 日期转换, 时区转换, 时间差计算, 毫秒时间戳, 全球时间">
+    <meta name="author" content="时间戳工具团队">
+    <meta name="robots" content="index, follow">
+    <meta name="copyright" content="© 2025 时间戳转换工具 保留所有权利">
     <title>时间戳转换指南与应用</title>
     <script src="https://cdn.tailwindcss.com/3.3.3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles/styles.css?v=2">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB8J629MTR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-MB8J629MTR');
+    </script>
 </head>
 <body class="min-h-screen">
     <!-- 语言切换器 -->
     <div class="language-switcher flex space-x-2">
-        <a href="/index.html" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">中文</a>
+        <a href="/zh/timestamp-converter_zh.html" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">中文</a>
         <a href="/en/" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">English</a>
+    </div>
+
+    <!-- 全球时间显示 -->
+    <div class="world-time-container bg-gradient-to-r from-blue-50 to-indigo-50 py-4 px-6 shadow-md mb-8">
+        <h3 class="text-center text-lg font-medium text-gray-700 mb-2">全球主要城市当前时间</h3>
+        <div class="world-time-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">北京时间</div>
+                <div id="beijing-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="beijing-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">纽约时间</div>
+                <div id="newyork-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="newyork-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">伦敦时间</div>
+                <div id="london-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="london-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">东京时间</div>
+                <div id="tokyo-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="tokyo-date"></div>
+            </div>
+        </div>
     </div>
 
     <!-- 主容器 -->
@@ -277,6 +309,11 @@
     <!-- 页脚 -->
     <footer class="bg-gray-50 py-8">
         <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <div class="mb-4">
+                <a href="/en/timestamp-converter_en.html" class="mx-2 hover:text-blue-500">English Version</a>
+                <a href="https://niuma.siteg.cc" class="mx-2 hover:text-blue-500" target="_blank">天选牛马测试</a>
+                <a href="https://isocode.siteg.cc" class="mx-2 hover:text-blue-500" target="_blank">全球语言代码表</a>
+            </div>
             <p class="mb-2">© 2025 时间戳转换工具 - 所有权利保留</p>
            </div>
     </footer>
