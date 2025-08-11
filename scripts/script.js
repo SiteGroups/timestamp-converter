@@ -1,5 +1,44 @@
 // 等待页面加载完成
 document.addEventListener('DOMContentLoaded', function() {
+    // 显示全球主要城市当前时间
+    updateWorldTime();
+    setInterval(updateWorldTime, 1000);
+
+    function updateWorldTime() {
+        const now = new Date();
+        const cities = [
+            { id: 'beijing', timeZone: 'Asia/Shanghai', lang: document.documentElement.lang },
+            { id: 'newyork', timeZone: 'America/New_York', lang: document.documentElement.lang },
+            { id: 'london', timeZone: 'Europe/London', lang: document.documentElement.lang },
+            { id: 'tokyo', timeZone: 'Asia/Tokyo', lang: document.documentElement.lang }
+        ];
+
+        cities.forEach(city => {
+            const timeElement = document.getElementById(`${city.id}-time`);
+            const dateElement = document.getElementById(`${city.id}-date`);
+
+            if (timeElement && dateElement) {
+                const time = new Intl.DateTimeFormat(city.lang, {
+                    timeZone: city.timeZone,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                }).format(now);
+
+                const date = new Intl.DateTimeFormat(city.lang, {
+                    timeZone: city.timeZone,
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    weekday: 'short'
+                }).format(now);
+
+                timeElement.textContent = time;
+                dateElement.textContent = date;
+            }
+        });
+    }
     const convertBtn = document.getElementById('convertBtn');
     const inputType = document.getElementById('inputType');
     const inputValue = document.getElementById('inputValue');
