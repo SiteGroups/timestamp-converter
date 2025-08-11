@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MB8J629MTR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MB8J629MTR');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional online timestamp converter tool supporting Unix timestamp to date conversion, millisecond timestamp conversion, current time display for major global cities, accurate time zone conversion, time difference calculation, and local time lookup - free to use.">
+    <meta name="keywords" content="timestamp converter, Unix timestamp, date conversion, time zone conversion, time difference calculation, millisecond timestamp, world time">
+    <meta name="author" content="Timestamp Tool Team">
+    <meta name="robots" content="index, follow">
+    <meta name="copyright" content="© 2025 Timestamp Converter Tool. All rights reserved.">
     <title>Timestamp Conversion Guide & Tool</title>
     <script src="https://cdn.tailwindcss.com/3.3.3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../styles/styles.css?v=2">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB8J629MTR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-MB8J629MTR');
+    </script>
 </head>
 <body class="min-h-screen">
     <!-- Language Switcher -->
     <div class="language-switcher flex space-x-2">
         <a href="../index.html" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">中文</a>
         <a href="/en/" class="px-3 py-1 rounded-full bg-white shadow text-sm font-medium text-gray-700 hover:bg-gray-100">English</a>
+    </div>
+
+    <!-- World Time Display -->
+    <div class="world-time-container bg-gradient-to-r from-blue-50 to-indigo-50 py-4 px-6 shadow-md mb-8">
+        <h3 class="text-center text-lg font-medium text-gray-700 mb-2">Current Time in Major Cities</h3>
+        <div class="world-time-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">Beijing Time</div>
+                <div id="beijing-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="beijing-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">New York Time</div>
+                <div id="newyork-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="newyork-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">London Time</div>
+                <div id="london-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="london-date"></div>
+            </div>
+            <div class="time-card p-3 bg-white rounded-lg shadow-sm">
+                <div class="city font-medium text-gray-800">Tokyo Time</div>
+                <div id="tokyo-time" class="time text-xl font-mono font-bold text-gray-900"></div>
+                <div class="date text-sm text-gray-500" id="tokyo-date"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -213,6 +245,18 @@
             </div>
         </section>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <div class="mb-4">
+                <a href="/" class="mx-2 hover:text-blue-500">Timestamp Converter</a>
+                <a href="https://niuma.siteg.cc" class="mx-2 hover:text-blue-500" target="_blank">Character Test</a>
+                <a href="https://isocode.siteg.cc" class="mx-2 hover:text-blue-500" target="_blank">ISO Language Codes</a>
+            </div>
+            <p class="mb-2">© 2025 Timestamp Converter - All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script src="../scripts/script.js"></script>
 </body>
